@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #6e93f7;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4070f4;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: black;
+}
+/*navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  padding: 15px;
+  left: 50px;
+  align-items: center;
+}
+/*navbar links like home,about,....*/
+.navbar-links {
+  display: flex;
+  column-gap: 20px;
+}
+.navbar-links a {
+  position: relative;
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+}
+.navbar-links a:before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+  height: 4px;
+  border-radius: 20px;
+  transform: scaleX(0);
+  background: yellow;
+  transition: all 0.3s ease-in-out;
+}
+.navbar-links a:hover:before {
+  transform: scaleX(1);
+  transform-origin: right;
+  color: yellow;
+}
+.sticky{
+  position: fixed;
+  left: 0;
+  width: 1500px;
+  z-index: 100;
+  background-color: black;
+}
+/*menu logo*/
+.navbar-menu-toggle {
+  display: none;
+}
+/*side-navbar*/
+.side-navbar {
+  background: black;
+  width: 30%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -60%;
+  padding: 30px;
+  color: white;
+  transition: 0.5s;
+  z-index: 2;
+}
+/*side-navbar-links like home,about,...*/
+.side-navbar-link {
+  margin-bottom: 30px;
+}
+.side-navbar-links a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.side-navbar-links a:before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+  height: 4px;
+  border-radius: 20px;
+  transform: scaleX(0);
+  background: yellow;
+  transition: all 0.3s ease-in-out;
+}
+.side-navbar-links a:hover:before {
+  transform: scaleX(1);
+  transform-origin: right;
+  text-decoration: underline;
+  color: yellow;
+}
+/*home page tittles*/
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  padding: 50px;
+  font-size: x-large;
+}
+.headings {
+  opacity: 0;
+  animation: headings 2s ease-in forwards;
+}
+.header-image {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 1s;
+  overflow: hidden;
+  animation: rotateimage 1s ease-in-out;
+}
+button.one {
+  background-color: rgb(207, 248, 6);
+  font-weight: 600;
+  font-size: 15px;
+  color: black;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 10px;
+  border-color: black;
+  cursor: pointer;
+}
+button.two {
+  background-color: black;
+  font-weight: 600;
+  color: white;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 10px;
+  border-color: white;
+  cursor: pointer;
+}
+.one,
+.two {
+  animation: headings 2s ease-in-out forwards;
+}
+/*about page*/
+section#About {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: #f1f1f1;
+  margin-top: 500px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.5s ease-in-out, transform 1s ease-in-out;
+}
+section#About.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+section#About .content {
+  width: 80%;
+  margin: 40px auto;
+  font-family: "Poppins", sans-serif;
+}
+.about .about-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+section .title span {
+  color: #0e2431;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+section .title span::before,
+section .title span::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: red;
+  left: 0;
+  bottom: 0;
+}
+section .title span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about .about-details .left {
+  width: 45%;
+}
+.about .left img {
+  height: 550px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.about-details .right {
+  width: 55%;
+}
+section .topic {
+  color: #0e2431;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.about-details .right p {
+  text-align: justify;
+  color: #0e2431;
+}
+.resume-button {
+  margin-top: 15px;
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 400;
+  background: red;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.resume-button:hover {
+  border-color: red;
+  background-color: #fff;
+  color: red;
+}
+/*skills page*/
+.skills{
+   background: #cde1f3;
+   padding: 50px;
+ }
+ .skills .content{
+   padding: 20px;
+   margin-right: 50px;
+ }
+ .skills .skills-details{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-left: 5%;
+   border-style: double;
+   border-width: 10px;
+   border-color: red;
+ }
+ .skills-details .text{
+   width: 50%;
+   font-size: 20px;
+   padding-left: 20px;
+ }
+ .skills-details p{
+   color: #0E2431;
+   text-align: justify;
+ }
+.skills-details .boxes{
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+.skills-details .box{
+  width: calc(100% / 2 - 20px);
+  margin: 20px 0;
+}
+.skills-details .boxes .topic{
+  font-size: 20px;
+  color: rgba(62, 4, 117, 0.811);
+}
+.skills-details .boxes .per{
+  font-size: 60px;
+  color: rgb(5, 122, 146);
+}
+
+/* My projects CSS */
+.projects{
+  background-color: #f1f1f1;
+  padding: 50px;
+}
+img{
+  height: 250px;
+  width: 450px;
+}
+.projects .boxes{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.projects .boxes .box{
+  margin: 20px 0;
+  width: calc(100% / 3 - 20px);
+  text-align: center;
+  border-radius: 12px;
+  padding: 30px 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.projects .boxes .box:hover{
+  background: red;
+  color: #fff;
+}
+.projects .boxes .box:hover .topic,
+.projects .boxes .box:hover p{
+  color: #0E2431;
+  transition: all 0.4s ease;
+}
+.projects .boxes .box:hover .topic,
+.projects .boxes .box:hover p{
+  color: #fff;
+}
+
+/*Contact page*/
+.Contact{
+  background: #cde1f3;
+  height: 500px;
+}
+.Contact .content{
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.Contact .text{
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+.Contact-button{
+  margin-top: 15px;
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 300;
+  background: red;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.Contact-button:hover{
+  border-color: red;
+  background-color: #fff;
+  color: red;
+}
+/*footer*/
+footer{
+  background: red;
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+footer .text span{
+  font-size: 17px;
+  font-weight: 400;
+  color: #fff;
+}
+footer .text span a{
+  font-weight: 500;
+  color: #FFF;
+}
+footer .text span a:hover{
+  text-decoration: underline;
+}
+
+/* Scroll TO Top Button CSS */
+.scroll-button a{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background: #4070f4;
+  padding: 7px 12px;;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+/*portable for mobile,tab and lap*/
+@media screen and (max-width: 700px) {
+  .navbar-menu-toggle {
+    display: block;
+  }
+  .navbar-links {
+    display: none;
+  }
+  .header-image {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+/*header image animation*/
+@keyframes rotateimage {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+/*header tittles animation*/
+@keyframes headings {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
