@@ -341,16 +341,38 @@ img{
 /*Contact page*/
 .Contact{
   background: #cde1f3;
-  height: 500px;
+  height: 660px;
 }
 .Contact .content{
   margin: 0 auto;
   padding: 20px 0;
+  height: 90px;
 }
 .Contact .text{
   width: 80%;
   text-align: center;
   margin: auto;
+}
+input{
+  margin-bottom: 5px;
+  height: 40px;
+  width: 250px;
+  padding: 10px;
+}
+
+textarea{
+  height: 150px;
+  width: 250px;
+  padding: 10px;
+  resize: none;
+  text-align: left;
+}
+
+textarea:focus::placeholder{
+  transform: none;
+  text-align: left;
+  top: 10px;
+  left: 10px;
 }
 .Contact-button{
   margin-top: 15px;
@@ -369,6 +391,13 @@ img{
   border-color: red;
   background-color: #fff;
   color: red;
+}
+.media-icons{
+      margin: 20px;
+}
+.media-icons :hover{
+  color: white;
+  background-color: #4070f4 ;
 }
 /*footer*/
 footer{
@@ -403,6 +432,7 @@ footer .text span a:hover{
   box-shadow: rgba(0, 0, 0, 0.15);
   display: none;
 }
+
 
 /*portable for mobile,tab and lap*/
 @media screen and (max-width: 700px) {
