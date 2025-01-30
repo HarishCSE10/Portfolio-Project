@@ -3,15 +3,14 @@ window.onscroll = function () {
     let nav=document.querySelector("nav");
   if (window.pageYOffset > 20) {
     nav.classList.add("sticky");
-    scrollBtn.style.display = "block";
   } else {
     nav.classList.remove("sticky");
-    scrollBtn.style.display = "none";
   }
 };
 
 //Sidenavbar Function
 var sidenav = document.querySelector(".side-navbar");
+var sidenavlinks = document.querySelectorAll(".side-navbar p a")
 
 function showNavbar() {
   sidenav.style.left = "0";
@@ -20,26 +19,27 @@ function showNavbar() {
 function closeNavbar() {
   sidenav.style.left = "-60%";
 }
+sidenavlinks.forEach((link) => {
+  link.addEventListener("click",closeNavbar);
+});
 
 //about animation function
 document.addEventListener("DOMContentLoaded", function () {
   const aboutSection = document.querySelector("#About");
+  let animationTriggered=false;
 
   function handleScroll() {
     const sectionPosition = aboutSection.getBoundingClientRect().top;
     const screenPosition = window.innerHeight;
 
-    if (sectionPosition < screenPosition) {
+    if (!animationTriggered && sectionPosition < screenPosition) {
       aboutSection.classList.add("visible");
-    } else {
-      aboutSection.classList.remove("visible");
-    }
+      animationTriggered=true;
+    } 
   }
 
   window.addEventListener("scroll", handleScroll);
 });
-
-
 
 
 

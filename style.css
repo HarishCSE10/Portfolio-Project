@@ -2,7 +2,10 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
+
+/* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -25,13 +28,21 @@ body {
   background-color: black;
 }
 /*navbar*/
-.navbar {
+.navbar{
   display: flex;
   justify-content: space-between;
   background: black;
   padding: 15px;
   left: 50px;
   align-items: center;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+.navbar.sticky{
+  background: #4070f4;
+}
+nav.navbar{
+  margin: auto;
 }
 /*navbar links like home,about,....*/
 .navbar-links {
@@ -67,6 +78,11 @@ body {
   z-index: 100;
   background-color: black;
 }
+.navbar .logo a{
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+}
 /*menu logo*/
 .navbar-menu-toggle {
   display: none;
@@ -74,15 +90,15 @@ body {
 /*side-navbar*/
 .side-navbar {
   background: black;
-  width: 30%;
+  width: 40%;
   height: 100%;
   position: fixed;
   top: 0;
   left: -60%;
-  padding: 30px;
+  padding: 50px;
   color: white;
-  transition: 0.5s;
-  z-index: 2;
+  transition:left 0.3s ease;
+  z-index: 1250;
 }
 /*side-navbar-links like home,about,...*/
 .side-navbar-link {
@@ -133,7 +149,7 @@ body {
   animation: rotateimage 1s ease-in-out;
 }
 button.one {
-  background-color: rgb(207, 248, 6);
+  background-color: yellow;
   font-weight: 600;
   font-size: 15px;
   color: black;
@@ -148,13 +164,13 @@ button.one {
 button.two {
   background-color: black;
   font-weight: 600;
-  color: white;
+  color: yellow;
   height: 50px;
   width: 100px;
   padding: 10px;
   border-radius: 30px;
   margin-top: 10px;
-  border-color: white;
+  border-color: yellow;
   cursor: pointer;
 }
 .one,
@@ -268,6 +284,7 @@ section .topic {
    align-items: center;
    margin-left: 5%;
    border-style: double;
+   border-radius: 50px;
    border-width: 10px;
    border-color: red;
  }
@@ -293,11 +310,11 @@ section .topic {
 }
 .skills-details .boxes .topic{
   font-size: 20px;
-  color: rgba(62, 4, 117, 0.811);
+  color: red;
 }
 .skills-details .boxes .per{
   font-size: 60px;
-  color: rgb(5, 122, 146);
+  color: #4070f4;
 }
 
 /* My projects CSS */
@@ -307,7 +324,9 @@ section .topic {
 }
 img{
   height: 250px;
-  width: 450px;
+  width: 250px;
+  overflow: hidden;
+  object-fit: cover;
 }
 .projects .boxes{
   display: flex;
@@ -433,19 +452,115 @@ footer .text span a:hover{
   display: none;
 }
 
-
 /*portable for mobile,tab and lap*/
-@media screen and (max-width: 700px) {
+@media (max-width: 1190px) {
+  section .content{
+    width: 85%;
+  }
+}
+@media (max-width: 1000px) {
+  .about .about-details{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .about .about-details .left{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .about-details .right{
+    width: 90%;
+    margin: 40px 0;
+  }
+  .services .boxes .box{
+    margin: 20px 0;
+    width: calc(100% / 2 - 20px);
+  }
+}
+@media (max-width: 750px) {
   .navbar-menu-toggle {
     display: block;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+  }
+  .sticky{
+    position:fixed;
+    top: 0;
+    height:20px;
   }
   .navbar-links {
     display: none;
   }
-  .header-image {
-    height: 200px;
-    width: 200px;
+  .header-image{
+    position: absolute;
+    top: 120px;
+    left: 100px;
+    height: 300px;
+    width: 300px;
   }
+  .header{
+    margin-left: 150px;
+    margin-top: 360px;
+    text-align: center;
+  }
+  .header-content{
+    position: absolute;
+    left: 40px;
+    top: 450px;
+  }
+ .about .about-details{
+    justify-content: center;
+    flex-direction: column;
+  }
+  .about .left img{
+    height: 350px;
+    width: 350px;
+  }
+  .about .about-details .left{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .about-details .right{
+    width: 90%;
+    margin: 40px 0;
+  }
+.skills .skills-details{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 25px;
+    width: 100%;
+    margin-left: -20px;
+    padding: 20px;
+  }
+  .skills-details .text{
+    width: 100%;
+    margin-bottom: 50px;
+    
+  }
+  .skills-details .boxes{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+   .skills-details .boxes .per{
+    font-size: 50px;
+    color: #4070f4;
+  }
+  .projects .boxes .box{
+    margin: 20px 0;
+    width: 100%;
+  }
+  img{
+    width: 280px;
+  }
+  .contact .text{
+    width: 100%;
+}
+
 }
 
 /*header image animation*/
@@ -467,4 +582,3 @@ footer .text span a:hover{
     opacity: 1;
   }
 }
-
